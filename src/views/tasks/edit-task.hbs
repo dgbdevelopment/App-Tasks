@@ -1,0 +1,38 @@
+<div class="col-lg-5 mx-auto">
+   <div class="card">
+      <div class="card-header"><h3>Editar Tarea</h3></div>
+      <div class="card-body">
+         <form action="/tasks/edit-task/{{task._id}}?_method=PUT" method="POST">
+            <input type="hidden" name="_method" value="PUT">
+            <div class="form-group">
+               <input type="text" name="title" class="form-control" placeholder="Título de la tarea" autofocus="true" value="{{task.title}}">
+            </div>
+            <div class="form-group">               
+               <textarea name="description" class="form-control" placeholder="Descripción o anotaciones">{{task.description}}</textarea>
+            </div>
+            <div class="form-group text-center">
+               <p><label for="options">Prioridad</label></p>
+               <div class="btn-group btn-group-toggle" data-toggle="buttons">
+                  <label class="btn btn-secondary {{active task.priority 'Baja'}}">
+                     <input type="radio" name="priority" id="low" autocomplete="off" value="Baja" {{checked task.priority 'Baja'}} > Baja
+                  </label>
+                  <label class="btn btn-success {{active task.priority 'Normal'}}">
+                     <input type="radio" name="priority" id="normal" autocomplete="off" value="Normal" {{checked task.priority 'Normal'}} > Normal
+                     <!-- checked priority 'normal' -->
+                  </label>                  
+                  <label class="btn btn-warning {{active task.priority 'Alta'}}">
+                     <input type="radio" name="priority" id="high" autocomplete="off" value="Alta" {{checked task.priority 'Alta'}} > Alta
+                  </label>
+                  <label class="btn btn-danger {{active task.priority 'Urgente'}}">
+                     <input type="radio" name="priority" id="urgent" autocomplete="off" value="Urgente" {{checked task.priority 'Urgente'}} > Urgente
+                  </label>
+               </div>
+            </div>
+            <div class="form-group mt-5">
+               <button class="btn btn-primary btn-block btn-block" type="submit">Guardar cambios</button>
+            </div>
+         </form>
+      </div>   
+   </div>
+   
+</div>

@@ -1,0 +1,46 @@
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark mb-4 p-0">
+   <div class="container-fluid">
+      <a class="navbar-brand mr-5" style="margin-top: -2px" href="/">Lista de tareas</a>
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav"
+         aria-expanded="false" aria-label="Toggle navigation">
+         <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarNav">
+         <ul class="navbar-nav mr-auto">
+            <li class="nav-item">
+               <a class="nav-link {{#if active.home}}active{{/if}}" href="/">Inicio <span class="sr-only">(current)</span></a>
+            </li>
+            <!--<li class="nav-item">
+               <a class="nav-link {{#if active.about}}active{{/if}}" href="/about">About</a>
+            </li>-->
+         </ul>
+         {{#if user}}
+         <ul class="navbar-nav mx-auto">
+            <li class="nav-item"><a href="/tasks/new-task" class="nav-link"><i class="fas fa-user mr-2"></i> {{user.name}}</a></li>
+         </ul>
+         {{/if}}
+         <ul class="navbar-nav ml-auto">
+            {{#if user}}
+            <li class="nav-item dropdown">
+               <a class="nav-link dropdown-toggle {{#if active.tasks}}active{{/if}}" href="#" id="navbarDropdownMenuLink" role="button" data-toggle="dropdown"
+                  aria-haspopup="true" aria-expanded="false">
+                  Tareas
+               </a>
+               <div class="dropdown-menu navbar-dark bg-dark" aria-labelledby="navbarDropdownMenuLink">
+                  <a class="dropdown-item nav-link" href="/tasks">Todas las tareas</a>
+                  <a class="dropdown-item nav-link" href="/tasks/new-task">Agregar nueva tarea</a>
+                  <a class="dropdown-item nav-link" href="/users/logout">Cerrar sesión</a>
+               </div>
+            </li>
+            {{else}}            
+            <li class="nav-item">
+               <a class="nav-link {{#if active.signin}}active{{/if}}" href="/users/signin">Ingresar</a>
+            </li>
+            <li class="nav-item">
+               <a class="nav-link {{#if active.signup}}active{{/if}}" href="/users/signup">Registarse</a>
+            </li>
+            {{/if}}
+         </ul>
+      </div>
+   </div>
+</nav>

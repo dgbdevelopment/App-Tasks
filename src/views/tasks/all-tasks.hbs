@@ -1,0 +1,66 @@
+<div class="row">
+   {{#each tasks}}
+   <div class="col-lg-8 col-md-10 mx-auto">
+      <div class="card mt-3">
+         <div class="card-header d-flex justify-content-between align-items-center">
+            <span {{#if done}} class="line-through" {{/if}}>
+               <strong>
+                  {{title}}
+               </strong>
+            </span>
+            <span style="min-width: 250px; text-align: right;">
+               <small class="text-black-50">{{created_at}}</small> &nbsp; |
+               {{priority}} |
+               &nbsp; <a href="/tasks/edit/{{_id}}" title="Editar"> <i class="fas fa-pencil-alt"></i></a>
+               &nbsp;
+               <form class="d-inline-block p-0" action="/tasks/delete/{{_id}}?_method=DELETE" method="POST">
+                  <input type="hidden" name="_method" value="DELETE">
+                  <button class="btn bg-transparent text-primary p-0 border-0" type="button" data-toggle="modal"
+                     data-target="#confirmModal{{_id}}" title="Eliminar"><i class="fas fa-trash-alt"></i></button>
+                  <div class="modal fade" id="confirmModal{{_id}}" tabindex="-1" role="dialog" aria-labelledby="confirmModal{{_id}}Label"
+                     aria-hidden="true">
+                     <div class="modal-dialog" role="document">
+                        <div class="modal-content">
+                           <div class="modal-header">
+                              <h5 class="modal-title" id="confirmModal{{_id}}Label">Confirmar eliminar tarea</h5>
+                              <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                 <span aria-hidden="true">&times;</span>
+                              </button>
+                           </div>
+                           <div class="modal-body text-left">
+                              ¿Estás seguro?
+                           </div>
+                           <div class="modal-footer">
+                              <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancelar</button>
+                              <button type="submit" class="btn btn-primary">Confirmar</button>
+                           </div>
+                        </div>
+                     </div>
+                  </div>
+               </form>
+               &nbsp;
+               <form class="d-inline-block p-0" action="/tasks/done/{{_id}}?_method=PUT" method="POST">
+                  <input type="hidden" name="_method" value="PUT">
+                  <button class="btn bg-transparent text-primary p-0 border-0" type="submit" title="Marcar como{{#if done}} no{{/if}} finalizada"><i
+                        class="far fa{{#if done}}-check{{/if}}-square"></i></button>
+               </form>
+            </span>
+         </div>
+         <div class="card-body">
+            <span class="{{#if done}}line-through{{/if}} line-break">{{description}}</span>
+         </div>
+      </div>
+   </div>
+   {{else}}
+   <div class="col-lg-8 mx-auto text-center">
+      <div class="card">
+         <div class="card-header">
+            No hay tareas creadas aún
+         </div>
+         <div class="card-body">
+            <a href="/tasks/new-task" class="btn btn-primary">Crea una</a>
+         </div>
+      </div>
+   </div>
+   {{/each}}
+</div>
