@@ -48,6 +48,21 @@ router.get('/tasks', isAuth, async (req, res) => {
    res.render('tasks/all-tasks', {active: {tasks: true}, tasks});
 });
 
+router.post('/tasks/search', isAuth, async (req, res) => {
+   const { search } = req.body;
+   const regex = new RegExp (search, 'i');
+   const tasks = await Task.find({user: req.user.id, $or: [{title: regex}, {description: regex}]}).sort({done: 1, priority_code: -1, created_at: -1});
+   if(tasks.length <= 0){
+      req.flash('error_msg', 'No se ha encontrado ninguna tarea que contenga: "'+search+'"');
+      return res.redirect('/tasks');
+   }
+   moment.locale('es');
+   await tasks.map((task)=>{
+      task.created_at = moment(task.created_at,"X").fromNow();
+   })
+   res.render('tasks/all-tasks', {active: {tasks: true}, tasks, 'success_msg': 'Tareas encontradas que contienen: "'+search+'"'});   
+});
+
 router.get('/tasks/edit/:id', isAuth, async(req,res) => {
    const task = await Task.findById(req.params.id);
    res.render('tasks/edit-task', {task});

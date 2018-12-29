@@ -5,6 +5,8 @@ const methodOverride = require('method-override');
 const session = require('express-session');
 const flash = require('connect-flash');
 const passport = require('passport');
+const https = require('https');
+const fs = require('fs');
 
 // Initializations
 const app = express();
@@ -62,6 +64,11 @@ app.use(require('./routes/users'));
 app.use(express.static(path.join(__dirname, 'public')));
 
 // Server is listening
+/*https.createServer({
+   key: fs.readFileSync(path.join(__dirname, 'ssl.tareas.dgbdevelopment.com.key')),
+   cert: fs.readFileSync(path.join(__dirname, 'ssl.tareas.dgbdevelopment.com.crt'))
+}, app)*/
+// Para https sustituir app de abajo por comentario de arriba.
 app.listen(app.get('port'), () => {
    console.log('Server on port', app.get('port'));
 });
