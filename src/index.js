@@ -65,9 +65,10 @@ app.use(express.static(path.join(__dirname, 'public')));
 
 // Server is listening
 /*https.createServer({
-   key: fs.readFileSync(path.join(__dirname, 'ssl.tareas.dgbdevelopment.com.key')),
-   cert: fs.readFileSync(path.join(__dirname, 'ssl.tareas.dgbdevelopment.com.crt'))
+   key: fs.readFileSync(path.join(__dirname, '../..', 'my_certs', 'ssl.tareas.dgbdevelopment.com.key')),
+   cert: fs.readFileSync(path.join(__dirname, '../..', 'my_certs','ssl.tareas.dgbdevelopment.com.crt'))
 }, app)*/
+
 // Para https sustituir app de abajo por comentario de arriba.
 app.listen(app.get('port'), () => {
    console.log('Server on port', app.get('port'));
