@@ -64,12 +64,14 @@ app.use(require('./routes/users'));
 app.use(express.static(path.join(__dirname, 'public')));
 
 // Server is listening
+// Server with SSL
 /*https.createServer({
    key: fs.readFileSync(path.join(__dirname, '../..', 'my_certs', 'ssl.tareas.dgbdevelopment.com.key')),
    cert: fs.readFileSync(path.join(__dirname, '../..', 'my_certs','ssl.tareas.dgbdevelopment.com.crt'))
-}, app)*/
+}, app).listen(app.get('port'), () => {
+   console.log('Server on port', app.get('port'));*/
 
-// Para https sustituir app de abajo por comentario de arriba.
+// Normal Server
 app.listen(app.get('port'), () => {
    console.log('Server on port', app.get('port'));
 });
