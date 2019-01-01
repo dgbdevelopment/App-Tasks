@@ -8,11 +8,14 @@
                   {{title}}
                </strong>
             </span>
-            <span style="min-width: 250px; text-align: right;">
-               <small class="text-black-50">{{created_at}}</small> &nbsp; |
-               {{priority}} |
+            <span style="min-width: 170px; text-align: right;">
+               <span class="on-the-right">
+                  <small class="text-black-50">{{created_at}}</small> &nbsp; |
+                  {{priority}} |
+               </span>
                &nbsp; <a href="/tasks/edit/{{_id}}" title="Editar"> <i class="fas fa-pencil-alt"></i></a>
                &nbsp;
+
                <form class="d-inline-block p-0" action="/tasks/delete/{{_id}}?_method=DELETE" method="POST">
                   <input type="hidden" name="_method" value="DELETE">
                   <button class="btn bg-transparent text-primary p-0 border-0" type="button" data-toggle="modal"

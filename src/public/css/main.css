@@ -41,3 +41,10 @@ body{
    padding-left: 1rem;
 }
 
+@media (max-width: 490px) {
+   span.on-the-right{
+      display: block;
+   }
+}
+
+
