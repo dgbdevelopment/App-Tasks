@@ -1,53 +1,65 @@
-body{
-   /*background: rgb(1,60,46);
+body {
+  /*background: rgb(1,60,46);
    background: linear-gradient(90deg, rgba(1,60,46,1) 0%, rgba(2,122,91,1) 45%, rgba(2,122,91,1) 55%, rgba(1,60,46,1) 100%);*/
-   background: rgb(34,193,195);
-   background: linear-gradient(270deg, rgba(34,193,195,1) 0%, rgba(3,159,185,1) 50%, rgba(34,193,195,1) 100%);
+  background: rgb(34, 193, 195);
+  background: linear-gradient(
+    270deg,
+    rgba(34, 193, 195, 1) 0%,
+    rgba(3, 159, 185, 1) 50%,
+    rgba(34, 193, 195, 1) 100%
+  );
 }
-.btn.active{
-   transform: scale(1.1,1.1);
-   -webkit-transform: scale(1.1,1.1);
-   -moz-transform: scale(1.1,1.1);
-   -ms-transform: scale(1.1,1.1);
-   -o-transform: scale(1.1,1.1);
+.btn.active {
+  transform: scale(1.1, 1.1);
+  -webkit-transform: scale(1.1, 1.1);
+  -moz-transform: scale(1.1, 1.1);
+  -ms-transform: scale(1.1, 1.1);
+  -o-transform: scale(1.1, 1.1);
 }
-.btn.bg-transparent.text-primary.p-0.border-0{
-   margin-top: -4px;
+.btn.bg-transparent.text-primary.p-0.border-0 {
+  margin-top: -4px;
 }
-.btn.bg-transparent.text-primary.p-0.border-0:hover{
-   color:#0056b3 !important;
+.btn.bg-transparent.text-primary.p-0.border-0:hover {
+  color: #0056b3 !important;
 }
-.line-through{
-   text-decoration: line-through;
+.line-through {
+  text-decoration: line-through;
 }
-.line-break{
-   white-space: pre-line;
+.line-break {
+  white-space: pre-line;
 }
-.nav-item.dropdown .dropdown-menu{
-   left: inherit;
-   right: 0;
+.nav-item.dropdown .dropdown-menu {
+  left: inherit;
+  right: 0;
 }
-.nav-link.active, .nav-link:hover{
-   background: rgba(0,0,0,.5);
+.nav-link.active,
+.nav-link:hover {
+  background: rgba(0, 0, 0, 0.5);
 }
-.dropdown-menu{
-   margin: 0;
+.dropdown-menu {
+  margin: 0;
 }
-.dropdown-menu.show{
-   margin-bottom: 1rem;
+.dropdown-menu.show {
+  margin-bottom: 1rem;
 }
 
-.navbar-brand, .navbar-nav .nav-link{
-   padding-left: 1rem;
+.navbar-brand,
+.navbar-nav .nav-link {
+  padding-left: 1rem;
 }
 .form-inline {
-   flex-flow: nowrap;
+  flex-flow: nowrap;
+}
+span.custom-title ~ span {
+  min-width: 270px;
 }
 
-@media (max-width: 490px) {
-   span.on-the-right{
-      display: block;
-   }
+@media screen and (max-width: 490px) {
+  span.on-the-right {
+    display: block;
+    min-width: 170px;
+  }
+  span.custom-title ~ span {
+    min-width: 175px;
+  }
 }
-
-

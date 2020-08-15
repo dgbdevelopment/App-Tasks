@@ -6,6 +6,8 @@
          <span class="navbar-toggler-icon"></span>
       </button>
       <div class="collapse navbar-collapse" id="navbarNav">
+         {{#if user}}
+         {{else}}
          <ul class="navbar-nav mr-auto">
             <li class="nav-item">
                <a class="nav-link {{#if active.home}}active{{/if}}" href="/">Inicio <span class="sr-only">(current)</span></a>
@@ -14,6 +16,7 @@
                <a class="nav-link {{#if active.about}}active{{/if}}" href="/about">About</a>
             </li>-->
          </ul>
+         {{/if}}
          {{#if user}}
          <ul class="navbar-nav mx-auto">
             <li class="nav-item"><a href="/tasks/new-task" class="nav-link"><i class="fas fa-user mr-2"></i>

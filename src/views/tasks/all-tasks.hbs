@@ -3,15 +3,15 @@
    <div class="col-lg-8 col-md-10 mx-auto">
       <div class="card mt-3">
          <div class="card-header d-flex justify-content-between align-items-center">
-            <span {{#if done}} class="line-through" {{/if}}>
+            <span class="custom-title {{#if done}}line-through{{/if}}">
                <strong>
                   {{title}}
                </strong>
             </span>
-            <span style="min-width: 170px; text-align: right;">
+            <span style="text-align: right;">
                <span class="on-the-right">
-                  <small class="text-black-50">{{created_at}}</small> &nbsp; |
-                  {{priority}} |
+                  <small class="text-black-50">{{created_at}}</small>
+                  <span>| {{priority}} |</span>
                </span>
                &nbsp; <a href="/tasks/edit/{{_id}}" title="Editar"> <i class="fas fa-pencil-alt"></i></a>
                &nbsp;
