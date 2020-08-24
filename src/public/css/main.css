@@ -1,13 +1,14 @@
 body {
-  /*background: rgb(1,60,46);
-   background: linear-gradient(90deg, rgba(1,60,46,1) 0%, rgba(2,122,91,1) 45%, rgba(2,122,91,1) 55%, rgba(1,60,46,1) 100%);*/
-  background: rgb(34, 193, 195);
+  min-height: 100vh;
+  background: rgb(1, 60, 46);
   background: linear-gradient(
-    270deg,
-    rgba(34, 193, 195, 1) 0%,
-    rgba(3, 159, 185, 1) 50%,
-    rgba(34, 193, 195, 1) 100%
+    45deg,
+    rgb(120, 22, 133) 0%,
+    rgb(50 51 117) 45%,
+    rgb(50 51 117) 55%,
+    rgb(120, 22, 133) 100%
   );
+  background-attachment: fixed;
 }
 .btn.active {
   transform: scale(1.1, 1.1);
@@ -52,6 +53,9 @@ body {
 }
 span.custom-title ~ span {
   min-width: 270px;
+}
+.bg-dark {
+  background-color: #1f1f1f !important;
 }
 
 @media screen and (max-width: 490px) {
